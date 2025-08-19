@@ -1,0 +1,13 @@
+--Para cada loja da tabela DimStore, descubra qual o Continente e o Nome do País associados (de acordo com DimGeography). Seu SELECT final deve conter apenas as seguintes colunas: StoreKey, StoreName, EmployeeCount, ContinentName e RegionCountryName. Utilize o LEFT JOIN neste exercício.
+SELECT * FROM DimStore
+SELECT * FROM DimGeography
+SELECT 
+	DimStore.StoreKey AS 'ID Loja',
+	DimStore.StoreName AS 'Loja',
+	DimStore.EmployeeCount AS 'Qtd. Funcionários',
+	DimGeography.ContinentName AS 'Continente',
+	DimGeography.RegionCountryName AS 'País'
+FROM
+DimStore
+LEFT JOIN DimGeography
+ON DimStore.GeographyKey = DimGeography.GeographyKey
